@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>เว็บโปรเจคหยก</title>
+
+<style>
+
+body{
+    margin:0;
+    min-height:100vh;
+    font-family:sans-serif;
+    background:linear-gradient(135deg,#07111f,#123b5c,#08111f);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+}
+
+.card{
+    width:80%;
+    max-width:700px;
+    padding:40px;
+    text-align:center;
+    border-radius:30px;
+    background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.2);
+    box-shadow:0 0 40px rgba(0,195,255,0.35);
+}
+
+h1{
+    font-size:55px;
+    margin-bottom:20px;
+}
+
+img{
+    width:350px;
+    border-radius:20px;
+    margin-bottom:25px;
+}
+
+.login-box{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.login-box input{
+    width:260px;
+    padding:15px;
+    border:none;
+    border-radius:15px;
+    font-size:18px;
+    text-align:center;
+}
+
+button{
+    padding:16px 45px;
+    border:none;
+    border-radius:999px;
+    background:#00c3ff;
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+    box-shadow:0 0 25px #00c3ff;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.08);
+    background:#008cff;
+}
+
+p{
+    font-size:24px;
+    color:#dbeafe;
+}
+body::before{
+    content:"";
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(0,195,255,0.35), transparent 25%),
+        radial-gradient(circle at 80% 70%, rgba(255,0,200,0.25), transparent 25%);
+    animation:bgMove 6s infinite alternate;
+    z-index:-1;
+}
+
+@keyframes bgMove{
+    from{
+        transform:scale(1);
+    }
+    to{
+        transform:scale(1.2);
+    }
+}
+</style>
+
+</head>
+
+<body>
+<audio autoplay loop>
+<source src="bg.mp3" type="audio/mp3">
+</audio>
+<div class="card">
+
+<h1>โปรเจคหยก 🚀</h1>
+
+<img src="goku.gif.gif">
+
+<div class="login-box">
+
+<input id="username" type="text" placeholder="ชื่อผู้ใช้">
+
+<input id="password" type="password" placeholder="รหัสผ่าน" onkeypress="enterLogin(event)">
+
+<button onclick="login()">เข้าสู่ระบบ</button>
+
+</div>
+
+<p>เว็บไซต์แรกแบบสวยขึ้น ไฮเทค และทันสมัย</p>
+
+<button onclick="alert('เว็บของหยกเริ่มเป็นมือโปรแล้ว 😎')">
+เริ่มใช้งาน
+</button>
+
+</div>
+
+<audio id="loginSound" src="login.mp3"></audio>
+
+<script>
+
+function login(){
+
+let username = document.getElementById("username").value;
+let password = document.getElementById("password").value;
+
+function enterLogin(event){
+    if(event.key === "Enter"){
+        login();
+    }
+}
+if(username === "inwyok" && password === "056360067"){
+
+    document.getElementById("loginSound").play();
+
+document.body.innerHTML = `
+<div class="card">
+  <h1>ANIME KUNG 😎</h1>
+  <p>ยินดีต้อนรับเข้าสู่ระบบ</p>
+  <p id="clock"></p>
+<img src="goku.gif.gif" width="350" style="border-radius:25px; margin-top:20px;">
+  <div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap; margin:25px 0;">
+    <button onclick="window.location.href='profile.html'">โปรไฟล์</button>
+
+<button onclick="window.location.href='member.html'">สมาชิก</button>
+
+<button onclick="window.location.href='setting.html'">ตั้งค่า</button>
+
+<button onclick="window.location.href='anime.html'">อนิเมะ</button>
+
+  </div>
+
+  <button onclick="alert('รีเซ็ตสำเร็จ 😎')">รีเซ็ต</button>
+</div>
+</div>
+`;
+
+}else{
+
+alert("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง ❌");
+
+}
+
+}
+setInterval(() => {
+document.getElementById("clock").innerHTML =
+new Date().toLocaleTimeString();
+},1000);
+function logout(){
+    localStorage.removeItem("login");
+    location.reload();
+}
+window.onload = function(){
+    if(localStorage.getItem("login") === "yes"){
+        showDashboard();
+    }
+}
+</script>
+
+
+</body>
+</html>
