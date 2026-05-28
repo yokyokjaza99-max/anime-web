@@ -143,11 +143,24 @@ function login(){
 let username = document.getElementById("username").value;
 let password = document.getElementById("password").value;
 
-function enterLogin(event){
-    if(event.key === "Enter"){
-        login();
-    }
+if(username === "inwyok" && password === "056360067"){
+
+    localStorage.setItem("login","yes");
+
+    document.getElementById("loginSound").play();
+
+    showDashboard();
+
+    return;
+
 }
+else{
+
+    alert("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง ❌");
+    
+}
+    
+
 if(username === "inwyok" && password === "056360067"){
 
     document.getElementById("loginSound").play();
