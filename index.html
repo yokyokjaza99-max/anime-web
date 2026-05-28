@@ -147,10 +147,14 @@ function login(){
         let sound = document.getElementById("loginSound");
         if(sound){ sound.play(); }
 
-        showDashboard();
+     let bg = document.getElementById("bgMusic");
 
-        document.getElementById("bgMusic").play();
-        
+showDashboard();
+
+if(bg){
+    bg.play();
+}
+
     }else{
         alert("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง ❌");
     }
