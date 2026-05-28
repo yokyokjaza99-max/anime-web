@@ -10,148 +10,110 @@ body{
   margin:0;
   font-family:sans-serif;
   color:white;
-  background:
-    linear-gradient(rgba(0,10,30,.75),rgba(0,10,30,.9)),
-    url("https://images.unsplash.com/photo-1519608487953-e999c86e7455?q=80&w=1600");
-  background-size:cover;
-  background-attachment:fixed;
+  background:linear-gradient(135deg,#050816,#0f2f4d,#2a0d45);
 }
 
 .header{
   text-align:center;
-  padding:35px;
-  font-size:50px;
+  padding:30px;
+  font-size:45px;
   font-weight:bold;
 }
 
 .box{
-  width:85%;
-  max-width:1000px;
+  width:90%;
+  max-width:1100px;
   margin:25px auto;
-  background:rgba(10,20,35,.88);
-  border-radius:10px;
-  box-shadow:0 0 25px #00c3ff;
-  overflow:hidden;
-}
-
-.title{
-  background:linear-gradient(90deg,#243bff,#18c8ff);
-  padding:15px;
-  text-align:center;
-  font-size:24px;
-  font-weight:bold;
-}
-
-.detail{
   padding:25px;
-  text-align:center;
+  border-radius:25px;
+  background:rgba(255,255,255,0.10);
+  box-shadow:0 0 35px rgba(0,195,255,0.35);
 }
 
-.poster{
-  width:330px;
-  max-width:90%;
-  border-radius:10px;
-  box-shadow:0 0 20px black;
-}
-
-.story{
-  margin:25px auto;
-  padding:18px;
-  max-width:850px;
-  background:rgba(255,255,255,.08);
-  border-radius:10px;
-  line-height:1.8;
+.player iframe{
+  width:100%;
+  height:520px;
+  border:0;
+  border-radius:20px;
+  background:black;
 }
 
 .episodes{
-  padding:25px;
-}
-
-.episodes a{
-  display:block;
-  color:white;
-  text-decoration:none;
-  font-size:22px;
-  margin:15px 0;
-  padding-left:20px;
-  border-left:4px solid orange;
-}
-
-.episodes a:hover{
-  color:#00c3ff;
-}
-
-.video{
-  background:black;
-  height:520px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:80px;
-  cursor:pointer;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:15px;
+  margin-top:25px;
 }
 
 button{
-  margin:20px;
-  padding:12px 30px;
+  padding:14px;
   border:none;
   border-radius:999px;
   background:#00c3ff;
   color:white;
   font-size:18px;
   cursor:pointer;
+  box-shadow:0 0 20px #00c3ff;
+}
+
+button:hover{
+  background:#008cff;
+  transform:scale(1.05);
+}
+
+.desc{
+  line-height:1.8;
+  color:#dbeafe;
 }
 
 @media(max-width:600px){
-  .header{font-size:34px;}
-  .video{height:280px;}
-  .episodes a{font-size:18px;}
+  .player iframe{height:260px;}
+  .header{font-size:32px;}
 }
 </style>
 </head>
 
 <body>
 
-<div class="header">ANIME ZONE 🎌</div>
+<div class="header">🎬 ANIME ZONE</div>
 
 <div class="box">
-  <div class="title">
-    Du Shi Gu Xian Yi หมออมตะเมืองโบราณ
-  </div>
+  <h1>หมออมตะเมืองโบราณ</h1>
+  <p class="desc">
+    เลือกตอนที่ต้องการรับชม ระบบจะเปลี่ยนวิดีโอให้อัตโนมัติ
+  </p>
+</div>
 
-  <div class="detail">
-    <img class="poster" src="https://i.imgur.com/xo8Xx7x.jpeg">
+<div class="box player">
+  <h2 id="episodeTitle">ตอนที่ 1</h2>
 
-    <div class="story">
-      <b>เรื่องย่อ :</b><br>
-      เย่ ป๋าน นักเรียนชั้นมัธยมศึกษา ได้พบกับเหตุการณ์ลึกลับ
-      และเริ่มต้นเส้นทางแห่งพลัง การต่อสู้ และการผจญภัยในโลกอนิเมะ
-    </div>
-  </div>
+  <iframe id="animePlayer"
+    src="https://streamtape.com/e/ใส่รหัสคลิปตรงนี้/"
+    allowfullscreen>
+  </iframe>
 </div>
 
 <div class="box">
-  <div class="title">รายการตอน</div>
+  <h2>รายการตอน</h2>
 
   <div class="episodes">
-    <a href="#video">หมออมตะเมืองโบราณ ตอนที่ 23</a>
-    <a href="#video">หมออมตะเมืองโบราณ ตอนที่ 24</a>
-    <a href="#video">หมออมตะเมืองโบราณ ตอนที่ 25</a>
-    <a href="#video">หมออมตะเมืองโบราณ ตอนที่ 26</a>
-    <a href="#video">หมออมตะเมืองโบราณ ตอนที่ 27</a>
-    <a href="#video">หมออมตะเมืองโบราณ ตอนที่ 28</a>
-  </div>
-</div>
-
-<div class="box" id="video">
-  <div class="title">หมออมตะเมืองโบราณ ตอนที่ 23</div>
-
-  <div class="video" onclick="alert('ใส่ไฟล์วิดีโอหรือ YouTube ตรงนี้ได้ครับ')">
-    ▶
+    <button onclick="playEpisode('ตอนที่ 1','https://streamtape.com/e/ใส่รหัสตอน1/')">ตอนที่ 1</button>
+    <button onclick="playEpisode('ตอนที่ 2','https://filemoon.sx/e/ใส่รหัสตอน2')">ตอนที่ 2</button>
+    <button onclick="playEpisode('ตอนที่ 3','https://voe.sx/e/ใส่รหัสตอน3')">ตอนที่ 3</button>
+    <button onclick="playEpisode('ตอนที่ 4','https://vidhide.com/embed/ใส่รหัสตอน4')">ตอนที่ 4</button>
   </div>
 
+  <br>
   <button onclick="window.location.href='index.html'">กลับหน้าหลัก</button>
 </div>
+
+<script>
+function playEpisode(title, link){
+  document.getElementById("episodeTitle").innerHTML = title;
+  document.getElementById("animePlayer").src = link;
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+</script>
 
 </body>
 </html>
