@@ -107,7 +107,7 @@ body::before{
 </head>
 
 <body>
-<audio autoplay loop>
+<audio id="bgMusic" loop>
 <source src="bg.mp3" type="audio/mp3">
 </audio>
 <div class="card">
@@ -148,6 +148,9 @@ function login(){
         if(sound){ sound.play(); }
 
         showDashboard();
+
+        document.getElementById("bgMusic").play();
+        
     }else{
         alert("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง ❌");
     }
