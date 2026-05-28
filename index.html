@@ -140,24 +140,19 @@ body::before{
 
 function login(){
 
-let username = document.getElementById("username").value;
-let password = document.getElementById("password").value;
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
 
-if(username === "inwyok" && password === "056360067"){
+    if(username === "inwyok" && password === "056360067"){
 
-    localStorage.setItem("login","yes");
+        localStorage.setItem("login","yes");
+        document.getElementById("loginSound").play();
+        showDashboard();
+        return;
 
-    document.getElementById("loginSound").play();
-
-    showDashboard();
-
-    return;
-
-}
-else{
-
-    alert("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง ❌");
-    
+    }else{
+        alert("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง ❌");
+    }
 }
     
 
