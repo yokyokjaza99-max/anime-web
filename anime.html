@@ -3,158 +3,154 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Anime Zone</title>
+<title>ANIME ZONE</title>
 
 <style>
 body{
-    margin:0;
-    font-family:sans-serif;
-    background:linear-gradient(135deg,#050816,#0f2f4d,#2a0d45);
-    color:white;
-    overflow-x:hidden;
+  margin:0;
+  font-family:sans-serif;
+  color:white;
+  background:
+    linear-gradient(rgba(0,10,30,.75),rgba(0,10,30,.9)),
+    url("https://images.unsplash.com/photo-1519608487953-e999c86e7455?q=80&w=1600");
+  background-size:cover;
+  background-attachment:fixed;
 }
 
-header{
-    padding:30px;
-    text-align:center;
-    font-size:55px;
-    font-weight:bold;
+.header{
+  text-align:center;
+  padding:35px;
+  font-size:50px;
+  font-weight:bold;
 }
 
-.banner{
-    width:90%;
-    max-width:1100px;
-    margin:auto;
-    padding:40px;
-    border-radius:30px;
-    background:rgba(255,255,255,0.08);
-    box-shadow:0 0 30px rgba(0,195,255,0.35);
-    text-align:center;
+.box{
+  width:85%;
+  max-width:1000px;
+  margin:25px auto;
+  background:rgba(10,20,35,.88);
+  border-radius:10px;
+  box-shadow:0 0 25px #00c3ff;
+  overflow:hidden;
 }
 
-iframe{
-    width:100%;
-    height:500px;
-    border:none;
-    border-radius:25px;
-    margin-top:25px;
+.title{
+  background:linear-gradient(90deg,#243bff,#18c8ff);
+  padding:15px;
+  text-align:center;
+  font-size:24px;
+  font-weight:bold;
 }
 
-.anime-list{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-    margin-top:40px;
+.detail{
+  padding:25px;
+  text-align:center;
 }
 
-.card{
-    background:rgba(255,255,255,0.08);
-    border-radius:25px;
-    padding:20px;
-    text-align:center;
-    transition:0.3s;
+.poster{
+  width:330px;
+  max-width:90%;
+  border-radius:10px;
+  box-shadow:0 0 20px black;
 }
 
-.card:hover{
-    transform:scale(1.05);
-    box-shadow:0 0 25px cyan;
+.story{
+  margin:25px auto;
+  padding:18px;
+  max-width:850px;
+  background:rgba(255,255,255,.08);
+  border-radius:10px;
+  line-height:1.8;
 }
 
-.card img{
-    width:100%;
-    height:330px;
-    object-fit:cover;
-    border-radius:20px;
+.episodes{
+  padding:25px;
+}
+
+.episodes a{
+  display:block;
+  color:white;
+  text-decoration:none;
+  font-size:22px;
+  margin:15px 0;
+  padding-left:20px;
+  border-left:4px solid orange;
+}
+
+.episodes a:hover{
+  color:#00c3ff;
+}
+
+.video{
+  background:black;
+  height:520px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:80px;
+  cursor:pointer;
 }
 
 button{
-    margin-top:15px;
-    padding:12px 30px;
-    border:none;
-    border-radius:999px;
-    background:#00c3ff;
-    color:white;
-    font-size:18px;
-    cursor:pointer;
-    box-shadow:0 0 20px #00c3ff;
-    transition:0.3s;
-}
-
-button:hover{
-    transform:scale(1.08);
-    background:#008cff;
-}
-
-.back-btn{
-    margin:30px auto;
-    display:block;
+  margin:20px;
+  padding:12px 30px;
+  border:none;
+  border-radius:999px;
+  background:#00c3ff;
+  color:white;
+  font-size:18px;
+  cursor:pointer;
 }
 
 @media(max-width:600px){
-    header{
-        font-size:38px;
-    }
-
-    .banner{
-        padding:20px;
-    }
-
-    iframe{
-        height:250px;
-    }
+  .header{font-size:34px;}
+  .video{height:280px;}
+  .episodes a{font-size:18px;}
 }
 </style>
 </head>
 
 <body>
 
-<header>
-🎬 ANIME ZONE
-</header>
+<div class="header">ANIME ZONE 🎌</div>
 
-<div class="banner">
+<div class="box">
+  <div class="title">
+    Du Shi Gu Xian Yi หมออมตะเมืองโบราณ
+  </div>
 
-<h2>โลกอนิเมะของหยก 😎</h2>
-<p>รวมตัวอย่างอนิเมะสุดมันส์ ดูได้แบบถูกลิขสิทธิ์</p>
+  <div class="detail">
+    <img class="poster" src="https://i.imgur.com/xo8Xx7x.jpeg">
 
-<iframe 
-src="https://www.youtube.com/embed/kVdlBxdqv8s"
-allowfullscreen>
-</iframe>
-
-<div class="anime-list">
-
-<div class="card">
-<img src="https://i.imgur.com/qIufhof.jpeg">
-<h2>Dragon Ball</h2>
-<button onclick="window.open('https://youtu.be/kVdlBxdqv8s')">
-รับชม
-</button>
+    <div class="story">
+      <b>เรื่องย่อ :</b><br>
+      เย่ ป๋าน นักเรียนชั้นมัธยมศึกษา ได้พบกับเหตุการณ์ลึกลับ
+      และเริ่มต้นเส้นทางแห่งพลัง การต่อสู้ และการผจญภัยในโลกอนิเมะ
+    </div>
+  </div>
 </div>
 
-<div class="card">
-<img src="https://i.imgur.com/tV4vY7D.jpeg">
-<h2>Naruto</h2>
-<button onclick="window.open('https://youtu.be/-G9BqkgZXRA')">
-รับชม
-</button>
+<div class="box">
+  <div class="title">รายการตอน</div>
+
+  <div class="episodes">
+    <a href="#video">หมออมตะเมืองโบราณ ตอนที่ 23</a>
+    <a href="#video">หมออมตะเมืองโบราณ ตอนที่ 24</a>
+    <a href="#video">หมออมตะเมืองโบราณ ตอนที่ 25</a>
+    <a href="#video">หมออมตะเมืองโบราณ ตอนที่ 26</a>
+    <a href="#video">หมออมตะเมืองโบราณ ตอนที่ 27</a>
+    <a href="#video">หมออมตะเมืองโบราณ ตอนที่ 28</a>
+  </div>
 </div>
 
-<div class="card">
-<img src="https://i.imgur.com/xo8Xx7x.jpeg">
-<h2>One Piece</h2>
-<button onclick="window.open('https://youtu.be/S8_YwFLCh4U')">
-รับชม
-</button>
-</div>
+<div class="box" id="video">
+  <div class="title">หมออมตะเมืองโบราณ ตอนที่ 23</div>
 
-</div>
+  <div class="video" onclick="alert('ใส่ไฟล์วิดีโอหรือ YouTube ตรงนี้ได้ครับ')">
+    ▶
+  </div>
 
-<button class="back-btn" onclick="window.location.href='index.html'">
-กลับหน้าหลัก
-</button>
-
+  <button onclick="window.location.href='index.html'">กลับหน้าหลัก</button>
 </div>
 
 </body>
