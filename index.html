@@ -122,7 +122,7 @@ body::before{
 
 <input id="password" type="password" placeholder="รหัสผ่าน" onkeypress="enterLogin(event)">
 
-<button onclick="login()">เข้าสู่ระบบ</button>
+<button onclick="startWeb()">เข้าสู่ระบบ</button>
 
 </div>
 
@@ -137,6 +137,19 @@ body::before{
 <audio id="loginSound" src="login.mp3"></audio>
 
 <script>
+
+    function startWeb(){
+
+    let bg = document.getElementById("bgMusic");
+
+    if(bg){
+        bg.volume = 0.5;
+        bg.play();
+    }
+
+    login();
+}
+
 function login(){
     let username = document.getElementById("username").value.trim();
     let password = document.getElementById("password").value.trim();
@@ -147,13 +160,7 @@ function login(){
         let sound = document.getElementById("loginSound");
         if(sound){ sound.play(); }
 
-     let bg = document.getElementById("bgMusic");
-
-showDashboard();
-
-if(bg){
-    bg.play();
-}
+     
 
     }else{
         alert("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง ❌");
