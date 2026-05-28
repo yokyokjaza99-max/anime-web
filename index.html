@@ -139,23 +139,21 @@ body::before{
 <script>
 
 function login(){
-
-    let username = document.getElementById("username").value;
-    let password = document.getElementById("password").value;
+    let username = document.getElementById("username").value.trim();
+    let password = document.getElementById("password").value.trim();
 
     if(username === "inwyok" && password === "056360067"){
-
         localStorage.setItem("login","yes");
-        document.getElementById("loginSound").play();
-        showDashboard();
-        return;
 
+        let sound = document.getElementById("loginSound");
+        if(sound){ sound.play(); }
+
+        showDashboard();
     }else{
         alert("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง ❌");
     }
 }
     
-
 if(username === "inwyok" && password === "056360067"){
 
     document.getElementById("loginSound").play();
