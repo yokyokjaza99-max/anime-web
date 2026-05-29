@@ -1,38 +1,94 @@
-```html
 <!DOCTYPE html>
 <html lang="th">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>รายละเอียดอนิเมะ</title>
+<title>Anime Detail</title>
 
 <style>
 body{
   margin:0;
-  background:#08111f;
-  color:white;
   font-family:sans-serif;
+  color:white;
+  background:linear-gradient(135deg,#050816,#0f2f4d,#2a0d45);
 }
 
 .container{
   width:90%;
-  max-width:1000px;
+  max-width:1100px;
   margin:auto;
-  padding:30px;
+  padding:30px 0;
 }
 
-img{
+.box{
+  background:rgba(255,255,255,0.10);
+  border-radius:25px;
+  padding:30px;
+  box-shadow:0 0 30px rgba(0,195,255,0.35);
+  margin-bottom:25px;
+}
+
+.hero{
+  display:flex;
+  gap:30px;
+  align-items:center;
+}
+
+.poster{
   width:300px;
   border-radius:20px;
+  box-shadow:0 0 25px black;
+}
+
+h1{
+  font-size:45px;
+  margin:0 0 15px;
+}
+
+.tag{
+  display:inline-block;
+  background:#00c3ff;
+  padding:7px 13px;
+  border-radius:999px;
+  margin:4px;
+}
+
+.story{
+  font-size:20px;
+  line-height:1.8;
+  color:#dbeafe;
+}
+
+.episodes{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:15px;
 }
 
 button{
-  padding:12px 25px;
+  padding:13px 25px;
   border:none;
   border-radius:999px;
   background:#00c3ff;
   color:white;
+  font-size:18px;
   cursor:pointer;
+  box-shadow:0 0 20px #00c3ff;
+}
+
+button:hover{
+  background:#008cff;
+}
+
+@media(max-width:700px){
+  .hero{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  h1{
+    font-size:34px;
+  }
 }
 </style>
 </head>
@@ -40,45 +96,83 @@ button{
 <body>
 
 <div class="container">
-  <h1 id="title">Anime</h1>
 
-  <img id="poster" src="">
+<div class="box hero">
+  <img id="poster" class="poster" src="">
 
-  <p id="story">
-    เรื่องย่อจะขึ้นตรงนี้
-  </p>
+  <div>
+    <h1 id="title">Anime</h1>
+    <div id="tags"></div>
+    <p id="story" class="story"></p>
+  </div>
+</div>
 
-  <button onclick="window.location.href='anime.html'">
-    กลับ
-  </button>
+<div class="box">
+  <h2>รายการตอน</h2>
+
+  <div class="episodes">
+    <button onclick="openEpisode(1)">ตอนที่ 1</button>
+    <button onclick="openEpisode(2)">ตอนที่ 2</button>
+    <button onclick="openEpisode(3)">ตอนที่ 3</button>
+    <button onclick="openEpisode(4)">ตอนที่ 4</button>
+    <button onclick="openEpisode(5)">ตอนที่ 5</button>
+    <button onclick="openEpisode(6)">ตอนที่ 6</button>
+  </div>
+</div>
+
+<button onclick="window.location.href='anime.html'">กลับหน้าอนิเมะ</button>
+
 </div>
 
 <script>
+const data = {
+  "Dragon Ball":{
+    poster:"https://i.imgur.com/qIufhof.jpeg",
+    story:"เรื่องราวของโกคูและเหล่านักสู้ไซย่า การต่อสู้ พลัง และการปกป้องโลกจากศัตรูสุดแกร่ง",
+    tags:["ต่อสู้","พลัง","แฟนตาซี"]
+  },
+  "Naruto":{
+    poster:"https://i.imgur.com/tV4vY7D.jpeg",
+    story:"เรื่องราวของนารูโตะ นินจาหนุ่มผู้มีความฝันอยากเป็นโฮคาเงะ และเส้นทางแห่งมิตรภาพ",
+    tags:["นินจา","ผจญภัย","มิตรภาพ"]
+  },
+  "One Piece":{
+    poster:"https://i.imgur.com/xo8Xx7x.jpeg",
+    story:"การผจญภัยของลูฟี่และกลุ่มหมวกฟาง เพื่อออกตามหาสมบัติวันพีซในทะเลอันกว้างใหญ่",
+    tags:["โจรสลัด","ผจญภัย","ตลก"]
+  },
+  "ดาบพิฆาตอสูร":{
+    poster:"https://i.imgur.com/6ZQJZ4P.jpeg",
+    story:"เรื่องราวของทันจิโร่ที่ต้องต่อสู้กับอสูร เพื่อช่วยน้องสาวและปกป้องผู้คน",
+    tags:["อสูร","แอ็กชัน","ดราม่า"]
+  },
+  "ผ่าพิภพไททัน":{
+    poster:"https://i.imgur.com/3ZQ3Z7R.jpeg",
+    story:"มนุษย์ต้องเอาชีวิตรอดจากไททันยักษ์ ท่ามกลางความลับและสงครามที่โหดร้าย",
+    tags:["เอาตัวรอด","สงคราม","ลึกลับ"]
+  },
+  "Hunter x Hunter":{
+    poster:"https://i.imgur.com/MU7T8tP.jpeg",
+    story:"กอนออกเดินทางเพื่อเป็นฮันเตอร์และตามหาพ่อ พร้อมพบเพื่อนและศัตรูมากมาย",
+    tags:["ผจญภัย","ต่อสู้","พลังพิเศษ"]
+  }
+};
 
 const params = new URLSearchParams(window.location.search);
+const animeName = params.get("anime") || "Dragon Ball";
+const anime = data[animeName] || data["Dragon Ball"];
 
-const anime = params.get("anime");
+document.getElementById("title").innerHTML = animeName;
+document.getElementById("poster").src = anime.poster;
+document.getElementById("story").innerHTML = anime.story;
 
-if(anime==="Dragon Ball"){
-  document.getElementById("title").innerHTML="Dragon Ball";
-  document.getElementById("poster").src="https://i.imgur.com/qIufhof.jpeg";
-  document.getElementById("story").innerHTML="เรื่องราวของโกคูและเหล่านักสู้ไซย่า";
+document.getElementById("tags").innerHTML =
+  anime.tags.map(tag => `<span class="tag">${tag}</span>`).join("");
+
+function openEpisode(ep){
+  alert(animeName + " ตอนที่ " + ep + " ยังไม่ได้ใส่ไฟล์วิดีโอครับ 😎");
 }
-
-if(anime==="Naruto"){
-  document.getElementById("title").innerHTML="Naruto";
-  document.getElementById("poster").src="https://i.imgur.com/tV4vY7D.jpeg";
-  document.getElementById("story").innerHTML="เรื่องราวของนินจาหนุ่มผู้ใฝ่ฝันเป็นโฮคาเงะ";
-}
-
-if(anime==="One Piece"){
-  document.getElementById("title").innerHTML="One Piece";
-  document.getElementById("poster").src="https://i.imgur.com/xo8Xx7x.jpeg";
-  document.getElementById("story").innerHTML="การผจญภัยของลูฟี่และกลุ่มหมวกฟาง";
-}
-
 </script>
 
 </body>
 </html>
-```
