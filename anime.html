@@ -3,115 +3,205 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ANIME ZONE</title>
+
+<title>ANIME KUNG - ดูอนิเมะ</title>
 
 <style>
 body{
   margin:0;
   font-family:sans-serif;
   color:white;
-  background:linear-gradient(135deg,#050816,#0f2f4d,#2a0d45);
+  background:
+    linear-gradient(rgba(0,0,20,.85),rgba(0,0,30,.95)),
+    url("https://images.unsplash.com/photo-1519608487953-e999c86e7455?q=80&w=1600");
+  background-size:cover;
+  background-attachment:fixed;
 }
 
 .header{
   text-align:center;
-  padding:30px;
-  font-size:45px;
+  padding:30px 10px;
+  font-size:48px;
   font-weight:bold;
+  text-shadow:0 0 20px #00c3ff;
+}
+
+.container{
+  width:90%;
+  max-width:1100px;
+  margin:auto;
 }
 
 .box{
-  width:90%;
-  max-width:1100px;
-  margin:25px auto;
+  background:rgba(5,15,35,.88);
+  border:1px solid rgba(0,195,255,.35);
+  box-shadow:0 0 35px rgba(0,195,255,.35);
+  border-radius:18px;
+  margin-bottom:25px;
+  overflow:hidden;
+}
+
+.title{
+  background:linear-gradient(90deg,#243bff,#18c8ff);
+  padding:15px;
+  text-align:center;
+  font-size:24px;
+  font-weight:bold;
+}
+
+.detail{
+  display:flex;
+  gap:25px;
   padding:25px;
-  border-radius:25px;
-  background:rgba(255,255,255,0.10);
-  box-shadow:0 0 35px rgba(0,195,255,0.35);
+  align-items:center;
+}
+
+.poster{
+  width:260px;
+  max-width:100%;
+  border-radius:15px;
+  box-shadow:0 0 25px rgba(0,0,0,.8);
+}
+
+.story{
+  line-height:1.8;
+  font-size:18px;
+  color:#dbeafe;
 }
 
 .player iframe{
   width:100%;
   height:520px;
   border:0;
-  border-radius:20px;
   background:black;
 }
 
 .episodes{
+  padding:25px;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
   gap:15px;
-  margin-top:25px;
 }
 
 button{
-  padding:14px;
+  padding:13px 20px;
   border:none;
   border-radius:999px;
   background:#00c3ff;
   color:white;
-  font-size:18px;
+  font-size:17px;
   cursor:pointer;
-  box-shadow:0 0 20px #00c3ff;
+  box-shadow:0 0 18px #00c3ff;
+  transition:.25s;
 }
 
 button:hover{
+  transform:scale(1.06);
   background:#008cff;
-  transform:scale(1.05);
 }
 
-.desc{
-  line-height:1.8;
-  color:#dbeafe;
+.back{
+  display:block;
+  margin:25px auto;
 }
 
-@media(max-width:600px){
-  .player iframe{height:260px;}
-  .header{font-size:32px;}
+.active{
+  background:#ff8c00 !important;
+  box-shadow:0 0 20px #ff8c00 !important;
+}
+
+@media(max-width:700px){
+  .header{
+    font-size:34px;
+  }
+
+  .detail{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .player iframe{
+    height:280px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<div class="header">🎬 ANIME ZONE</div>
+<div class="header">
+🎬 ANIME KUNG
+</div>
+
+<div class="container">
 
 <div class="box">
-  <h1>หมออมตะเมืองโบราณ</h1>
-  <p class="desc">
-    เลือกตอนที่ต้องการรับชม ระบบจะเปลี่ยนวิดีโอให้อัตโนมัติ
-  </p>
+  <div class="title">
+    หมออมตะเมืองโบราณ
+  </div>
+
+  <div class="detail">
+    <img class="poster" src="https://i.imgur.com/xo8Xx7x.jpeg">
+
+    <div class="story">
+      <h2>Du Shi Gu Xian Yi</h2>
+      <p>
+        เรื่องย่อ: เย่ ป๋าน นักเรียนธรรมดาที่ได้เข้าไปเกี่ยวข้องกับโลกพลังลึกลับ
+        การต่อสู้ และการผจญภัยสุดมันส์ในเมืองโบราณ
+      </p>
+      <p>
+        หมวดหมู่: แอ็กชัน / แฟนตาซี / ผจญภัย
+      </p>
+    </div>
+  </div>
 </div>
 
 <div class="box player">
-  <h2 id="episodeTitle">ตอนที่ 1</h2>
+  <div class="title" id="episodeTitle">
+    ตอนที่ 1
+  </div>
 
-  <iframe id="animePlayer"
-    src="https://streamtape.com/e/ใส่รหัสคลิปตรงนี้/"
+  <iframe
+    id="animePlayer"
+    src="https://streamtape.com/e/ใส่รหัสตอน1/"
     allowfullscreen>
   </iframe>
 </div>
 
 <div class="box">
-  <h2>รายการตอน</h2>
-
-  <div class="episodes">
-    <button onclick="playEpisode('ตอนที่ 1','https://streamtape.com/e/ใส่รหัสตอน1/')">ตอนที่ 1</button>
-    <button onclick="playEpisode('ตอนที่ 2','https://filemoon.sx/e/ใส่รหัสตอน2')">ตอนที่ 2</button>
-    <button onclick="playEpisode('ตอนที่ 3','https://voe.sx/e/ใส่รหัสตอน3')">ตอนที่ 3</button>
-    <button onclick="playEpisode('ตอนที่ 4','https://vidhide.com/embed/ใส่รหัสตอน4')">ตอนที่ 4</button>
+  <div class="title">
+    รายการตอน
   </div>
 
-  <br>
-  <button onclick="window.location.href='index.html'">กลับหน้าหลัก</button>
+  <div class="episodes">
+    <button class="active" onclick="playEpisode(this,'ตอนที่ 1','https://streamtape.com/e/ใส่รหัสตอน1/')">ตอนที่ 1</button>
+    <button onclick="playEpisode(this,'ตอนที่ 2','https://filemoon.sx/e/ใส่รหัสตอน2')">ตอนที่ 2</button>
+    <button onclick="playEpisode(this,'ตอนที่ 3','https://voe.sx/e/ใส่รหัสตอน3')">ตอนที่ 3</button>
+    <button onclick="playEpisode(this,'ตอนที่ 4','https://vidhide.com/embed/ใส่รหัสตอน4')">ตอนที่ 4</button>
+    <button onclick="playEpisode(this,'ตอนที่ 5','https://streamtape.com/e/ใส่รหัสตอน5/')">ตอนที่ 5</button>
+    <button onclick="playEpisode(this,'ตอนที่ 6','https://filemoon.sx/e/ใส่รหัสตอน6')">ตอนที่ 6</button>
+  </div>
+</div>
+
+<button class="back" onclick="window.location.href='index.html'">
+กลับหน้าหลัก
+</button>
+
 </div>
 
 <script>
-function playEpisode(title, link){
+function playEpisode(button,title,link){
   document.getElementById("episodeTitle").innerHTML = title;
   document.getElementById("animePlayer").src = link;
-  window.scrollTo({top:0, behavior:"smooth"});
+
+  let buttons = document.querySelectorAll(".episodes button");
+  buttons.forEach(btn => btn.classList.remove("active"));
+  button.classList.add("active");
+
+  window.scrollTo({
+    top:document.querySelector(".player").offsetTop - 20,
+    behavior:"smooth"
+  });
 }
 </script>
 
