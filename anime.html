@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -7,94 +8,89 @@
 
 <style>
 body{
-  margin:0;
-  font-family:sans-serif;
-  background:linear-gradient(135deg,#050816,#0f2f4d,#2a0d45);
-  color:white;
+    margin:0;
+    font-family:sans-serif;
+    background:linear-gradient(135deg,#050816,#0f2f4d,#2a0d45);
+    color:white;
 }
 
 header{
-  text-align:center;
-  padding:30px;
-  font-size:45px;
-  font-weight:bold;
-  text-shadow:0 0 20px #00c3ff;
+    text-align:center;
+    padding:30px;
+    font-size:50px;
+    font-weight:bold;
+    text-shadow:0 0 20px #00c3ff;
 }
 
 .search-box{
-  width:90%;
-  max-width:800px;
-  margin:0 auto 30px;
-  text-align:center;
+    width:90%;
+    max-width:800px;
+    margin:auto;
+    text-align:center;
 }
 
 .search-box input{
-  width:90%;
-  padding:16px;
-  border:none;
-  border-radius:999px;
-  font-size:20px;
-  text-align:center;
+    width:90%;
+    padding:15px;
+    border:none;
+    border-radius:999px;
+    font-size:18px;
 }
 
 .grid{
-  width:90%;
-  max-width:1200px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
+    width:90%;
+    max-width:1200px;
+    margin:30px auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
 }
 
 .card{
-  background:rgba(255,255,255,0.10);
-  border-radius:25px;
-  padding:18px;
-  text-align:center;
-  box-shadow:0 0 25px rgba(0,195,255,0.25);
-  transition:.3s;
+    background:rgba(255,255,255,0.08);
+    border-radius:25px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 0 25px rgba(0,195,255,0.2);
+    transition:.3s;
 }
 
 .card:hover{
-  transform:scale(1.04);
-  box-shadow:0 0 30px #00c3ff;
+    transform:translateY(-5px);
+    box-shadow:0 0 30px #00c3ff;
 }
 
 .card img{
-  width:100%;
-  height:330px;
-  object-fit:cover;
-  border-radius:20px;
+    width:100%;
+    height:320px;
+    object-fit:cover;
+    border-radius:20px;
 }
 
 .tag{
-  display:inline-block;
-  background:#00c3ff;
-  padding:6px 12px;
-  border-radius:999px;
-  margin:4px;
-  font-size:14px;
+    display:inline-block;
+    background:#00c3ff;
+    padding:6px 12px;
+    border-radius:999px;
+    margin:3px;
+    font-size:13px;
 }
 
 button{
-  margin-top:15px;
-  padding:12px 30px;
-  border:none;
-  border-radius:999px;
-  background:#00c3ff;
-  color:white;
-  font-size:18px;
-  cursor:pointer;
-  box-shadow:0 0 20px #00c3ff;
+    margin-top:15px;
+    padding:12px 25px;
+    border:none;
+    border-radius:999px;
+    background:#00c3ff;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    box-shadow:0 0 15px #00c3ff;
 }
 
 .back{
-  display:block;
-  margin:35px auto;
-}
-
-@media(max-width:600px){
-  header{font-size:32px;}
+    display:block;
+    margin:30px auto;
 }
 </style>
 </head>
@@ -104,95 +100,103 @@ button{
 <header>🎬 ANIME KUNG</header>
 
 <div class="search-box">
-  <input type="text" id="searchInput" placeholder="ค้นหาอนิเมะ..." onkeyup="searchAnime()">
+<input
+id="searchInput"
+type="text"
+placeholder="ค้นหาอนิเมะ..."
+onkeyup="searchAnime()">
 </div>
 
 <div class="grid" id="animeGrid">
 
-  <div class="card" data-name="dragon ball ดราก้อนบอล">
-    <img src="https://i.imgur.com/qIufhof.jpeg">
-    <h2>Dragon Ball</h2>
-    <span class="tag">ต่อสู้</span>
-    <span class="tag">พลัง</span>
-    <span class="tag">แฟนตาซี</span>
-    <br>
-    <button onclick="openAnime('Dragon Ball')">ดูรายละเอียด</button>
-  </div>
+<div class="card" data-name="dragon ball">
+<img src="https://i.imgur.com/qIufhof.jpeg">
+<h2>Dragon Ball</h2>
 
-  <div class="card" data-name="naruto นารูโตะ">
-    <img src="https://i.imgur.com/tV4vY7D.jpeg">
-    <h2>Naruto</h2>
-    <span class="tag">นินจา</span>
-    <span class="tag">ผจญภัย</span>
-    <span class="tag">มิตรภาพ</span>
-    <br>
-    <button onclick="openAnime('Naruto')">ดูรายละเอียด</button>
-  </div>
+<span class="tag">ต่อสู้</span>
+<span class="tag">พลัง</span>
+<span class="tag">แฟนตาซี</span>
 
-  <div class="card" data-name="one piece วันพีซ">
-    <img src="https://i.imgur.com/xo8Xx7x.jpeg">
-    <h2>One Piece</h2>
-    <span class="tag">โจรสลัด</span>
-    <span class="tag">ผจญภัย</span>
-    <span class="tag">ตลก</span>
-    <br>
-    <button onclick="openAnime('One Piece')">ดูรายละเอียด</button>
-  </div>
+<br>
 
-  <div class="card" data-name="demon slayer ดาบพิฆาตอสูร">
-    <img src="https://i.imgur.com/6ZQJZ4P.jpeg">
-    <h2>ดาบพิฆาตอสูร</h2>
-    <span class="tag">อสูร</span>
-    <span class="tag">แอ็กชัน</span>
-    <span class="tag">ดราม่า</span>
-    <br>
-    <button onclick="openAnime('ดาบพิฆาตอสูร')">ดูรายละเอียด</button>
-  </div>
+<button onclick="openAnime('Dragon Ball')">
+ดูรายละเอียด
+</button>
+</div>
 
-  <div class="card" data-name="attack on titan ผ่าพิภพไททัน">
-    <img src="https://i.imgur.com/3ZQ3Z7R.jpeg">
-    <h2>ผ่าพิภพไททัน</h2>
-    <span class="tag">เอาตัวรอด</span>
-    <span class="tag">สงคราม</span>
-    <span class="tag">ลึกลับ</span>
-    <br>
-    <button onclick="openAnime('ผ่าพิภพไททัน')">ดูรายละเอียด</button>
-  </div>
+<div class="card" data-name="naruto">
+<img src="https://i.imgur.com/tV4vY7D.jpeg">
+<h2>Naruto</h2>
 
-  <div class="card" data-name="hunter x hunter ฮันเตอร์">
-    <img src="https://i.imgur.com/MU7T8tP.jpeg">
-    <h2>Hunter x Hunter</h2>
-    <span class="tag">ผจญภัย</span>
-    <span class="tag">ต่อสู้</span>
-    <span class="tag">พลังพิเศษ</span>
-    <br>
-    <button onclick="openAnime('Hunter x Hunter')">ดูรายละเอียด</button>
-  </div>
+<span class="tag">นินจา</span>
+<span class="tag">ผจญภัย</span>
+<span class="tag">มิตรภาพ</span>
+
+<br>
+
+<button onclick="openAnime('Naruto')">
+ดูรายละเอียด
+</button>
+</div>
+
+<div class="card" data-name="one piece">
+<img src="https://i.imgur.com/xo8Xx7x.jpeg">
+<h2>One Piece</h2>
+
+<span class="tag">โจรสลัด</span>
+<span class="tag">ผจญภัย</span>
+<span class="tag">ตลก</span>
+
+<br>
+
+<button onclick="openAnime('One Piece')">
+ดูรายละเอียด
+</button>
+</div>
 
 </div>
 
-<button class="back" onclick="window.location.href='index.html'">กลับหน้าหลัก</button>
+<button class="back"
+onclick="window.location.href='index.html'">
+กลับหน้าหลัก
+</button>
 
 <script>
+
 function searchAnime(){
-  let input = document.getElementById("searchInput").value.toLowerCase();
-  let cards = document.querySelectorAll(".card");
 
-  cards.forEach(card => {
-    let name = card.getAttribute("data-name").toLowerCase();
+let input =
+document.getElementById("searchInput")
+.value.toLowerCase();
 
-    if(name.includes(input)){
-      card.style.display = "block";
-    }else{
-      card.style.display = "none";
-    }
-  });
+let cards =
+document.querySelectorAll(".card");
+
+cards.forEach(card=>{
+
+let name =
+card.dataset.name.toLowerCase();
+
+if(name.includes(input)){
+card.style.display="block";
+}else{
+card.style.display="none";
+}
+
+});
+
 }
 
 function openAnime(name){
-  alert("เปิดหน้าอนิเมะ: " + name + " 😎");
+
+window.location.href =
+"anime-detail.html?anime=" +
+encodeURIComponent(name);
+
 }
+
 </script>
 
 </body>
 </html>
+```
