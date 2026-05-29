@@ -1,0 +1,84 @@
+```html
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>รายละเอียดอนิเมะ</title>
+
+<style>
+body{
+  margin:0;
+  background:#08111f;
+  color:white;
+  font-family:sans-serif;
+}
+
+.container{
+  width:90%;
+  max-width:1000px;
+  margin:auto;
+  padding:30px;
+}
+
+img{
+  width:300px;
+  border-radius:20px;
+}
+
+button{
+  padding:12px 25px;
+  border:none;
+  border-radius:999px;
+  background:#00c3ff;
+  color:white;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1 id="title">Anime</h1>
+
+  <img id="poster" src="">
+
+  <p id="story">
+    เรื่องย่อจะขึ้นตรงนี้
+  </p>
+
+  <button onclick="window.location.href='anime.html'">
+    กลับ
+  </button>
+</div>
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+
+const anime = params.get("anime");
+
+if(anime==="Dragon Ball"){
+  document.getElementById("title").innerHTML="Dragon Ball";
+  document.getElementById("poster").src="https://i.imgur.com/qIufhof.jpeg";
+  document.getElementById("story").innerHTML="เรื่องราวของโกคูและเหล่านักสู้ไซย่า";
+}
+
+if(anime==="Naruto"){
+  document.getElementById("title").innerHTML="Naruto";
+  document.getElementById("poster").src="https://i.imgur.com/tV4vY7D.jpeg";
+  document.getElementById("story").innerHTML="เรื่องราวของนินจาหนุ่มผู้ใฝ่ฝันเป็นโฮคาเงะ";
+}
+
+if(anime==="One Piece"){
+  document.getElementById("title").innerHTML="One Piece";
+  document.getElementById("poster").src="https://i.imgur.com/xo8Xx7x.jpeg";
+  document.getElementById("story").innerHTML="การผจญภัยของลูฟี่และกลุ่มหมวกฟาง";
+}
+
+</script>
+
+</body>
+</html>
+```
