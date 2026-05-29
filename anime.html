@@ -190,7 +190,9 @@ function searchAnime(){
 }
 
 function openAnime(name){
-  alert("เปิดหน้าอนิเมะ: " + name + " 😎");
+  window.location.href =
+  "anime-detail.html?anime=" +
+  encodeURIComponent(name);
 }
 </script>
 
