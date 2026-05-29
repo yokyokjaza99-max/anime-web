@@ -3,205 +3,194 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>ANIME KUNG - ดูอนิเมะ</title>
+<title>ANIME KUNG</title>
 
 <style>
 body{
   margin:0;
   font-family:sans-serif;
+  background:linear-gradient(135deg,#050816,#0f2f4d,#2a0d45);
   color:white;
-  background:
-    linear-gradient(rgba(0,0,20,.85),rgba(0,0,30,.95)),
-    url("https://images.unsplash.com/photo-1519608487953-e999c86e7455?q=80&w=1600");
-  background-size:cover;
-  background-attachment:fixed;
 }
 
-.header{
+header{
   text-align:center;
-  padding:30px 10px;
-  font-size:48px;
+  padding:30px;
+  font-size:45px;
   font-weight:bold;
   text-shadow:0 0 20px #00c3ff;
 }
 
-.container{
+.search-box{
   width:90%;
-  max-width:1100px;
-  margin:auto;
-}
-
-.box{
-  background:rgba(5,15,35,.88);
-  border:1px solid rgba(0,195,255,.35);
-  box-shadow:0 0 35px rgba(0,195,255,.35);
-  border-radius:18px;
-  margin-bottom:25px;
-  overflow:hidden;
-}
-
-.title{
-  background:linear-gradient(90deg,#243bff,#18c8ff);
-  padding:15px;
+  max-width:800px;
+  margin:0 auto 30px;
   text-align:center;
-  font-size:24px;
-  font-weight:bold;
 }
 
-.detail{
-  display:flex;
-  gap:25px;
-  padding:25px;
-  align-items:center;
+.search-box input{
+  width:90%;
+  padding:16px;
+  border:none;
+  border-radius:999px;
+  font-size:20px;
+  text-align:center;
 }
 
-.poster{
-  width:260px;
-  max-width:100%;
-  border-radius:15px;
-  box-shadow:0 0 25px rgba(0,0,0,.8);
-}
-
-.story{
-  line-height:1.8;
-  font-size:18px;
-  color:#dbeafe;
-}
-
-.player iframe{
-  width:100%;
-  height:520px;
-  border:0;
-  background:black;
-}
-
-.episodes{
-  padding:25px;
+.grid{
+  width:90%;
+  max-width:1200px;
+  margin:auto;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
-  gap:15px;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:rgba(255,255,255,0.10);
+  border-radius:25px;
+  padding:18px;
+  text-align:center;
+  box-shadow:0 0 25px rgba(0,195,255,0.25);
+  transition:.3s;
+}
+
+.card:hover{
+  transform:scale(1.04);
+  box-shadow:0 0 30px #00c3ff;
+}
+
+.card img{
+  width:100%;
+  height:330px;
+  object-fit:cover;
+  border-radius:20px;
+}
+
+.tag{
+  display:inline-block;
+  background:#00c3ff;
+  padding:6px 12px;
+  border-radius:999px;
+  margin:4px;
+  font-size:14px;
 }
 
 button{
-  padding:13px 20px;
+  margin-top:15px;
+  padding:12px 30px;
   border:none;
   border-radius:999px;
   background:#00c3ff;
   color:white;
-  font-size:17px;
+  font-size:18px;
   cursor:pointer;
-  box-shadow:0 0 18px #00c3ff;
-  transition:.25s;
-}
-
-button:hover{
-  transform:scale(1.06);
-  background:#008cff;
+  box-shadow:0 0 20px #00c3ff;
 }
 
 .back{
   display:block;
-  margin:25px auto;
+  margin:35px auto;
 }
 
-.active{
-  background:#ff8c00 !important;
-  box-shadow:0 0 20px #ff8c00 !important;
-}
-
-@media(max-width:700px){
-  .header{
-    font-size:34px;
-  }
-
-  .detail{
-    flex-direction:column;
-    text-align:center;
-  }
-
-  .player iframe{
-    height:280px;
-  }
+@media(max-width:600px){
+  header{font-size:32px;}
 }
 </style>
 </head>
 
 <body>
 
-<div class="header">
-🎬 ANIME KUNG
+<header>🎬 ANIME KUNG</header>
+
+<div class="search-box">
+  <input type="text" id="searchInput" placeholder="ค้นหาอนิเมะ..." onkeyup="searchAnime()">
 </div>
 
-<div class="container">
+<div class="grid" id="animeGrid">
 
-<div class="box">
-  <div class="title">
-    หมออมตะเมืองโบราณ
+  <div class="card" data-name="dragon ball ดราก้อนบอล">
+    <img src="https://i.imgur.com/qIufhof.jpeg">
+    <h2>Dragon Ball</h2>
+    <span class="tag">ต่อสู้</span>
+    <span class="tag">พลัง</span>
+    <span class="tag">แฟนตาซี</span>
+    <br>
+    <button onclick="openAnime('Dragon Ball')">ดูรายละเอียด</button>
   </div>
 
-  <div class="detail">
-    <img class="poster" src="https://i.imgur.com/xo8Xx7x.jpeg">
-
-    <div class="story">
-      <h2>Du Shi Gu Xian Yi</h2>
-      <p>
-        เรื่องย่อ: เย่ ป๋าน นักเรียนธรรมดาที่ได้เข้าไปเกี่ยวข้องกับโลกพลังลึกลับ
-        การต่อสู้ และการผจญภัยสุดมันส์ในเมืองโบราณ
-      </p>
-      <p>
-        หมวดหมู่: แอ็กชัน / แฟนตาซี / ผจญภัย
-      </p>
-    </div>
+  <div class="card" data-name="naruto นารูโตะ">
+    <img src="https://i.imgur.com/tV4vY7D.jpeg">
+    <h2>Naruto</h2>
+    <span class="tag">นินจา</span>
+    <span class="tag">ผจญภัย</span>
+    <span class="tag">มิตรภาพ</span>
+    <br>
+    <button onclick="openAnime('Naruto')">ดูรายละเอียด</button>
   </div>
+
+  <div class="card" data-name="one piece วันพีซ">
+    <img src="https://i.imgur.com/xo8Xx7x.jpeg">
+    <h2>One Piece</h2>
+    <span class="tag">โจรสลัด</span>
+    <span class="tag">ผจญภัย</span>
+    <span class="tag">ตลก</span>
+    <br>
+    <button onclick="openAnime('One Piece')">ดูรายละเอียด</button>
+  </div>
+
+  <div class="card" data-name="demon slayer ดาบพิฆาตอสูร">
+    <img src="https://i.imgur.com/6ZQJZ4P.jpeg">
+    <h2>ดาบพิฆาตอสูร</h2>
+    <span class="tag">อสูร</span>
+    <span class="tag">แอ็กชัน</span>
+    <span class="tag">ดราม่า</span>
+    <br>
+    <button onclick="openAnime('ดาบพิฆาตอสูร')">ดูรายละเอียด</button>
+  </div>
+
+  <div class="card" data-name="attack on titan ผ่าพิภพไททัน">
+    <img src="https://i.imgur.com/3ZQ3Z7R.jpeg">
+    <h2>ผ่าพิภพไททัน</h2>
+    <span class="tag">เอาตัวรอด</span>
+    <span class="tag">สงคราม</span>
+    <span class="tag">ลึกลับ</span>
+    <br>
+    <button onclick="openAnime('ผ่าพิภพไททัน')">ดูรายละเอียด</button>
+  </div>
+
+  <div class="card" data-name="hunter x hunter ฮันเตอร์">
+    <img src="https://i.imgur.com/MU7T8tP.jpeg">
+    <h2>Hunter x Hunter</h2>
+    <span class="tag">ผจญภัย</span>
+    <span class="tag">ต่อสู้</span>
+    <span class="tag">พลังพิเศษ</span>
+    <br>
+    <button onclick="openAnime('Hunter x Hunter')">ดูรายละเอียด</button>
+  </div>
+
 </div>
 
-<div class="box player">
-  <div class="title" id="episodeTitle">
-    ตอนที่ 1
-  </div>
-
-  <iframe
-    id="animePlayer"
-    src="https://streamtape.com/e/ใส่รหัสตอน1/"
-    allowfullscreen>
-  </iframe>
-</div>
-
-<div class="box">
-  <div class="title">
-    รายการตอน
-  </div>
-
-  <div class="episodes">
-    <button class="active" onclick="playEpisode(this,'ตอนที่ 1','https://streamtape.com/e/ใส่รหัสตอน1/')">ตอนที่ 1</button>
-    <button onclick="playEpisode(this,'ตอนที่ 2','https://filemoon.sx/e/ใส่รหัสตอน2')">ตอนที่ 2</button>
-    <button onclick="playEpisode(this,'ตอนที่ 3','https://voe.sx/e/ใส่รหัสตอน3')">ตอนที่ 3</button>
-    <button onclick="playEpisode(this,'ตอนที่ 4','https://vidhide.com/embed/ใส่รหัสตอน4')">ตอนที่ 4</button>
-    <button onclick="playEpisode(this,'ตอนที่ 5','https://streamtape.com/e/ใส่รหัสตอน5/')">ตอนที่ 5</button>
-    <button onclick="playEpisode(this,'ตอนที่ 6','https://filemoon.sx/e/ใส่รหัสตอน6')">ตอนที่ 6</button>
-  </div>
-</div>
-
-<button class="back" onclick="window.location.href='index.html'">
-กลับหน้าหลัก
-</button>
-
-</div>
+<button class="back" onclick="window.location.href='index.html'">กลับหน้าหลัก</button>
 
 <script>
-function playEpisode(button,title,link){
-  document.getElementById("episodeTitle").innerHTML = title;
-  document.getElementById("animePlayer").src = link;
+function searchAnime(){
+  let input = document.getElementById("searchInput").value.toLowerCase();
+  let cards = document.querySelectorAll(".card");
 
-  let buttons = document.querySelectorAll(".episodes button");
-  buttons.forEach(btn => btn.classList.remove("active"));
-  button.classList.add("active");
+  cards.forEach(card => {
+    let name = card.getAttribute("data-name").toLowerCase();
 
-  window.scrollTo({
-    top:document.querySelector(".player").offsetTop - 20,
-    behavior:"smooth"
+    if(name.includes(input)){
+      card.style.display = "block";
+    }else{
+      card.style.display = "none";
+    }
   });
+}
+
+function openAnime(name){
+  alert("เปิดหน้าอนิเมะ: " + name + " 😎");
 }
 </script>
 
