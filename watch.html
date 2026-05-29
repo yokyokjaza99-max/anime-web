@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ดูอนิเมะ</title>
+
+<style>
+body{
+  margin:0;
+  font-family:sans-serif;
+  background:linear-gradient(135deg,#050816,#0f2f4d,#2a0d45);
+  color:white;
+}
+
+.container{
+  width:90%;
+  max-width:1100px;
+  margin:auto;
+  padding:30px 0;
+}
+
+.box{
+  background:rgba(255,255,255,0.10);
+  border-radius:25px;
+  padding:25px;
+  box-shadow:0 0 30px rgba(0,195,255,0.35);
+  text-align:center;
+}
+
+.video{
+  width:100%;
+  height:520px;
+  background:#000;
+  border-radius:20px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:80px;
+  margin-top:20px;
+}
+
+button{
+  margin:15px;
+  padding:13px 25px;
+  border:none;
+  border-radius:999px;
+  background:#00c3ff;
+  color:white;
+  font-size:18px;
+  cursor:pointer;
+  box-shadow:0 0 20px #00c3ff;
+}
+
+@media(max-width:700px){
+  .video{height:280px;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="box">
+    <h1 id="title">กำลังโหลด...</h1>
+
+    <div class="video">
+      ▶
+    </div>
+
+    <p>ตรงนี้คือพื้นที่เล่นวิดีโอ ใส่ไฟล์ MP4 หรือ Embed ได้ภายหลัง</p>
+
+    <button onclick="history.back()">กลับ</button>
+    <button onclick="window.location.href='anime.html'">หน้าอนิเมะ</button>
+  </div>
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const anime = params.get("anime") || "Anime";
+const ep = params.get("ep") || "1";
+
+document.getElementById("title").innerHTML =
+  anime + " ตอนที่ " + ep;
+</script>
+
+</body>
+</html>
