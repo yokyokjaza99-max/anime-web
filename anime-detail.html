@@ -170,7 +170,8 @@ document.getElementById("tags").innerHTML =
   anime.tags.map(tag => `<span class="tag">${tag}</span>`).join("");
 
 function openEpisode(ep){
-  alert(animeName + " ตอนที่ " + ep + " ยังไม่ได้ใส่ไฟล์วิดีโอครับ 😎");
+  window.location.href =
+  "watch.html?anime=" + encodeURIComponent(animeName) + "&ep=" + ep;
 }
 </script>
 
