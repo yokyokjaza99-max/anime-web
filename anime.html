@@ -8,191 +8,158 @@
 <style>
 body{
   margin:0;
+  min-height:100vh;
   font-family:sans-serif;
-  background:linear-gradient(135deg,#050816,#0f2f4d,#2a0d45);
+  background:linear-gradient(135deg,#07111f,#123b5c,#3b0f4a);
+  display:flex;
+  justify-content:center;
+  align-items:center;
   color:white;
-}
-
-header{
-  text-align:center;
-  padding:30px;
-  font-size:45px;
-  font-weight:bold;
-  text-shadow:0 0 20px #00c3ff;
-}
-
-.search-box{
-  width:90%;
-  max-width:800px;
-  margin:0 auto 30px;
-  text-align:center;
-}
-
-.search-box input{
-  width:90%;
-  padding:16px;
-  border:none;
-  border-radius:999px;
-  font-size:20px;
-  text-align:center;
-}
-
-.grid{
-  width:90%;
-  max-width:1200px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
 }
 
 .card{
-  background:rgba(255,255,255,0.10);
-  border-radius:25px;
-  padding:18px;
+  width:80%;
+  max-width:850px;
+  padding:45px;
   text-align:center;
-  box-shadow:0 0 25px rgba(0,195,255,0.25);
-  transition:.3s;
+  border-radius:30px;
+  background:rgba(255,255,255,0.12);
+  border:1px solid rgba(255,255,255,0.25);
+  box-shadow:0 0 40px rgba(0,195,255,0.35);
 }
 
-.card:hover{
-  transform:scale(1.04);
-  box-shadow:0 0 30px #00c3ff;
+h1{
+  font-size:55px;
 }
 
-.card img{
-  width:100%;
-  height:330px;
-  object-fit:cover;
+img{
+  width:350px;
+  max-width:90%;
   border-radius:20px;
 }
 
-.tag{
-  display:inline-block;
-  background:#00c3ff;
-  padding:6px 12px;
-  border-radius:999px;
-  margin:4px;
-  font-size:14px;
+input{
+  width:300px;
+  max-width:90%;
+  padding:15px;
+  margin:8px;
+  border:none;
+  border-radius:15px;
+  font-size:18px;
+  text-align:center;
 }
 
 button{
-  margin-top:15px;
-  padding:12px 30px;
+  margin:8px;
+  padding:16px 35px;
   border:none;
   border-radius:999px;
   background:#00c3ff;
   color:white;
-  font-size:18px;
+  font-size:20px;
   cursor:pointer;
-  box-shadow:0 0 20px #00c3ff;
-}
-
-.back{
-  display:block;
-  margin:35px auto;
-}
-
-@media(max-width:600px){
-  header{font-size:32px;}
+  box-shadow:0 0 25px #00c3ff;
 }
 </style>
 </head>
 
 <body>
 
-<header>🎬 ANIME KUNG</header>
+<div class="card" id="app">
+  <h1>โปรเจคหยก 🚀</h1>
+  <img src="goku.gif.gif">
 
-<div class="search-box">
-  <input type="text" id="searchInput" placeholder="ค้นหาอนิเมะ..." onkeyup="searchAnime()">
+  <br><br>
+  <input id="username" type="text" placeholder="ชื่อผู้ใช้">
+  <input id="password" type="password" placeholder="รหัสผ่าน" onkeypress="enterLogin(event)">
+  <br>
+  <button onclick="login()">เข้าสู่ระบบ</button>
+
+  <p>ระบบสมาชิก ANIME KUNG</p>
 </div>
-
-<div class="grid" id="animeGrid">
-
-  <div class="card" data-name="dragon ball ดราก้อนบอล">
-    <img src="https://i.imgur.com/qIufhof.jpeg">
-    <h2>Dragon Ball</h2>
-    <span class="tag">ต่อสู้</span>
-    <span class="tag">พลัง</span>
-    <span class="tag">แฟนตาซี</span>
-    <br>
-    <button onclick="openAnime('Dragon Ball')">ดูรายละเอียด</button>
-  </div>
-
-  <div class="card" data-name="naruto นารูโตะ">
-    <img src="https://i.imgur.com/tV4vY7D.jpeg">
-    <h2>Naruto</h2>
-    <span class="tag">นินจา</span>
-    <span class="tag">ผจญภัย</span>
-    <span class="tag">มิตรภาพ</span>
-    <br>
-    <button onclick="openAnime('Naruto')">ดูรายละเอียด</button>
-  </div>
-
-  <div class="card" data-name="one piece วันพีซ">
-    <img src="https://i.imgur.com/xo8Xx7x.jpeg">
-    <h2>One Piece</h2>
-    <span class="tag">โจรสลัด</span>
-    <span class="tag">ผจญภัย</span>
-    <span class="tag">ตลก</span>
-    <br>
-    <button onclick="openAnime('One Piece')">ดูรายละเอียด</button>
-  </div>
-
-  <div class="card" data-name="demon slayer ดาบพิฆาตอสูร">
-    <img src="https://i.imgur.com/6ZQJZ4P.jpeg">
-    <h2>ดาบพิฆาตอสูร</h2>
-    <span class="tag">อสูร</span>
-    <span class="tag">แอ็กชัน</span>
-    <span class="tag">ดราม่า</span>
-    <br>
-    <button onclick="openAnime('ดาบพิฆาตอสูร')">ดูรายละเอียด</button>
-  </div>
-
-  <div class="card" data-name="attack on titan ผ่าพิภพไททัน">
-    <img src="https://i.imgur.com/3ZQ3Z7R.jpeg">
-    <h2>ผ่าพิภพไททัน</h2>
-    <span class="tag">เอาตัวรอด</span>
-    <span class="tag">สงคราม</span>
-    <span class="tag">ลึกลับ</span>
-    <br>
-    <button onclick="openAnime('ผ่าพิภพไททัน')">ดูรายละเอียด</button>
-  </div>
-
-  <div class="card" data-name="hunter x hunter ฮันเตอร์">
-    <img src="https://i.imgur.com/MU7T8tP.jpeg">
-    <h2>Hunter x Hunter</h2>
-    <span class="tag">ผจญภัย</span>
-    <span class="tag">ต่อสู้</span>
-    <span class="tag">พลังพิเศษ</span>
-    <br>
-    <button onclick="openAnime('Hunter x Hunter')">ดูรายละเอียด</button>
-  </div>
-
-</div>
-
-<button class="back" onclick="window.location.href='index.html'">กลับหน้าหลัก</button>
 
 <script>
-function searchAnime(){
-  let input = document.getElementById("searchInput").value.toLowerCase();
-  let cards = document.querySelectorAll(".card");
+const users = [
+  { user:"inwyok", pass:"056360067", role:"admin", name:"หยก" },
+  { user:"member1", pass:"111111", role:"member", name:"สมาชิก 1" },
+  { user:"member2", pass:"222222", role:"member", name:"สมาชิก 2" }
+];
 
-  cards.forEach(card => {
-    let name = card.getAttribute("data-name").toLowerCase();
+function login(){
+  let username = document.getElementById("username").value.trim();
+  let password = document.getElementById("password").value.trim();
 
-    if(name.includes(input)){
-      card.style.display = "block";
-    }else{
-      card.style.display = "none";
-    }
-  });
+  let foundUser = users.find(u => u.user === username && u.pass === password);
+
+  if(foundUser){
+    localStorage.setItem("login","yes");
+    localStorage.setItem("username",foundUser.user);
+    localStorage.setItem("role",foundUser.role);
+    localStorage.setItem("displayName",foundUser.name);
+    showDashboard();
+  }else{
+    alert("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง ❌");
+  }
 }
 
-function openAnime(name){
-  window.location.href =
-  "anime-detail.html?anime=" +
-  encodeURIComponent(name);
+function showDashboard(){
+  let name = localStorage.getItem("displayName");
+  let role = localStorage.getItem("role");
+
+  let adminButton = "";
+
+  if(role === "admin"){
+    adminButton = `
+      <button onclick="window.location.href='admin.html'">
+        แอดมิน
+      </button>
+    `;
+  }
+
+  document.body.innerHTML = `
+  <div class="card">
+    <h1>ANIME KUNG 😎</h1>
+    <p>ยินดีต้อนรับ ${name}</p>
+    <p>สถานะ: ${role}</p>
+    <p id="clock"></p>
+
+    <img src="goku.gif.gif">
+
+    <div>
+      <button onclick="window.location.href='profile.html'">โปรไฟล์</button>
+      <button onclick="window.location.href='member.html'">สมาชิก</button>
+      <button onclick="window.location.href='setting.html'">ตั้งค่า</button>
+      <button onclick="window.location.href='anime.html'">อนิเมะ</button>
+      ${adminButton}
+    </div>
+
+    <button onclick="logout()">ออกจากระบบ</button>
+  </div>
+  `;
+
+  setInterval(() => {
+    let clock = document.getElementById("clock");
+    if(clock){
+      clock.innerHTML = new Date().toLocaleTimeString();
+    }
+  },1000);
+}
+
+function enterLogin(event){
+  if(event.key === "Enter"){
+    login();
+  }
+}
+
+function logout(){
+  localStorage.clear();
+  location.reload();
+}
+
+window.onload = function(){
+  if(localStorage.getItem("login") === "yes"){
+    showDashboard();
+  }
 }
 </script>
 
